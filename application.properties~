@@ -1,0 +1,5 @@
+#Grails Metadata file
+#Tue Sep 17 23:13:54 CEST 2013
+app.grails.version=2.2.4
+app.name=HowManyPeople
+app.version=0.1
