@@ -12,8 +12,15 @@ modules = {
 		resource url:'js/Router.js'
 		
 		resource url:'js/templates/application.embbars', attrs:[type:'js'], bundle:'app'
+		resource url:'js/templates/header.embbars', attrs:[type:'js'], bundle:'app'
 		resource url:'js/templates/index.embbars', attrs:[type:'js'], bundle:'app'
+		
         resource url:'js/IndexView.js'
+		resource url:'js/header/HeaderView.js' 
         resource url:'js/ApplicationView.js'
     }
+	style {
+		defaultBundle 'style'
+		resource url:'css/mobile.css'
+	}
 }

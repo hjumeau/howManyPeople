@@ -14,7 +14,6 @@
 	</head>
 	<body>
 		<g:layoutBody/>
-		<div class="footer" role="contentinfo"></div>
 		<r:layoutResources />
 	</body>
 </html>

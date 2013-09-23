@@ -1,33 +1,18 @@
 /* Styles for mobile devices */
 
 @media screen and (max-width: 480px) {
-	.nav {
-		padding: 0.5em;
-	}
 
-	.nav li {
-		margin: 0 0.5em 0 0;
-		padding: 0.25em;
+	/* general style */
+	.ember-view .header{
+		min-width: 480px;
+		height: 20px;
+		background-color: #F17333; 
 	}
-
-	/* Hide individual steps in pagination, just have next & previous */
-	.pagination .step, .pagination .currentStep {
-		display: none;
+	
+	.header .menu {
+		width: 10%;	
 	}
-
-	.pagination .prevLink {
-		float: left;
-	}
-
-	.pagination .nextLink {
-		float: right;
-	}
-
-	/* pagination needs to wrap around floated buttons */
-	.pagination {
-		overflow: hidden;
-	}
-
+	
 	/* slightly smaller margin around content body */
 	fieldset,
 	.property-list {
