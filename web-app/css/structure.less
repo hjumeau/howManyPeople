@@ -1,0 +1,57 @@
+@import "../vars";
+@import "vars";
+@import "mixins";
+
+
+html, body,
+.application-view-wrapper,
+.search-view-wrapper {
+    height:100%;
+}
+
+body {
+    position:relative;
+    margin:50px auto 0;
+    background:#ccc;
+    //overflow: hidden;
+}
+
+.application-view-wrapper {
+    margin:0 auto;
+    position:relative;
+    width:320px;
+    //min-height:100%;
+    height:580px;
+    //outline:2px solid lime;
+    background:white;
+    
+    // home page is NOT scrollable
+    &.home { overflow:hidden; }
+    // result page is scrollable
+    &.results { overflow:visible; }
+}
+
+.application-wrapper {
+    -webkit-transition: -webkit-transform .3s ease;
+       -moz-transition:    -moz-transform .3s ease;
+        -ms-transition:     -ms-transform .3s ease;
+            transition:         transform .3s ease;
+
+    height:100%;
+
+    // drop shadow en bg-image pour diminuer les repaints
+    &.slide-left:after {
+        content:''; width:10px;
+        position:absolute; left:100%; top:0; bottom:0;
+        background:url('../../images/phone/drop-shadow-right.png') repeat-y;
+    }
+}
+
+.main { padding:0; margin:0; }
+
+@media (max-width:650px) {
+    body,
+    .application-view-wrapper {
+        width:auto; margin:0; padding:0;
+    }
+}
