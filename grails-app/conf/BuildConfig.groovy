@@ -47,6 +47,9 @@ grails.project.dependency.resolution = {
         runtime ":hibernate:$grailsVersion"
         runtime ":resources:1.2"
 		runtime ":ember-templates-precompiler:0.4.3"
+        compile ':lesscss-resources:1.3.3', {
+            excludes([group: 'rhino', name: 'js'], [name: 'rhino'])
+        }
 
         // Uncomment these (or add new ones) to enable additional resources capabilities
         //runtime ":zipped-resources:1.0"
