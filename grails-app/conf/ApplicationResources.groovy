@@ -20,7 +20,8 @@ modules = {
         resource url:'js/ApplicationView.js'
     }
 	style {
-		defaultBundle 'style'
-		resource url:'css/mobile.css'
+		resource url:'css/structure.less', attrs:[rel: "stylesheet/less", type:'css'], bundle:'bundle_style'
+		resource url:'css/header.less', attrs:[rel: "stylesheet/less", type:'css'], bundle:'bundle_style'
+		resource url:'css/needforbundle.css'
 	}
 }

@@ -1,11 +1,5 @@
-@import "../vars";
-@import "vars";
-@import "mixins";
-
-
 html, body,
-.application-view-wrapper,
-.search-view-wrapper {
+.application-view-wrapper {
     height:100%;
 }
 
@@ -31,23 +25,7 @@ body {
     &.results { overflow:visible; }
 }
 
-.application-wrapper {
-    -webkit-transition: -webkit-transform .3s ease;
-       -moz-transition:    -moz-transform .3s ease;
-        -ms-transition:     -ms-transform .3s ease;
-            transition:         transform .3s ease;
-
-    height:100%;
-
-    // drop shadow en bg-image pour diminuer les repaints
-    &.slide-left:after {
-        content:''; width:10px;
-        position:absolute; left:100%; top:0; bottom:0;
-        background:url('../../images/phone/drop-shadow-right.png') repeat-y;
-    }
-}
-
-.main { padding:0; margin:0; }
+.main-view-wrapper { padding:0; margin:0; }
 
 @media (max-width:650px) {
     body,

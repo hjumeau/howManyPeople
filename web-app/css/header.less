@@ -1,78 +1,20 @@
-@import "../vars";
-@import "vars";
-@import "mixins";
-
-
 header {
-    height:@headerHeight;
+    height:50px;
     position:relative; z-index:1;
-    background:black;
+    background:#F17333;
 
-    // petite fleche en bas du header
+    /* // petite fleche en bas du header
     &:after { content:''; 
         width:0; height:0;
         display:block; position:absolute; top:100%; left:50%;
         margin-left:-4px; border:4px solid transparent; border-top-color:black;
-    }
+    } */
 
-    -webkit-transition: -webkit-transform 300ms ease 50ms;
-       -moz-transition:-moz-transform 300ms ease 50ms;
-        -ms-transition:-ms-transform 300ms ease 50ms;
-            transition:transform 300ms ease 50ms;
-
-    .autocomplete-mode & { .transform(translate(0px,-110%)); }
-
-    &.home { height:45px; }
-
-    .logo {
+    /* .logo {
         display:block; margin:0 auto;
         width:100px; height:45px; 
         background:url(../../images/logo.png) no-repeat center center;
         background-size:contain;
-    }
-
-    .tools {
-        .box-sizing(border-box);
-        width:100%; margin-top:10px; padding:0 10px;
-        position:absolute; z-index:2;
-
-        a { display:inline-block; font-size:29px; color:white; text-decoration:none; }
-        .ico-list-2 { 
-            font-size:22px; position:relative; top:3px; 
-            // increase clickable area
-            &:after { content:'';
-                position:absolute;
-                top:-10px; bottom:-10px; 
-                left:-10px; right:-10px; 
-            }
-        }
-        .hidden { opacity:0; }
-        a:active { color:@blueEJP; }
-    }
-    
-    // overrides pin styles
-    .pin { 
-        color:@blueEJP;
-        top:7px; left:50%; margin-left:-@pinSize/2; 
-    }
+    } */
 }
 
-.header-digest {
-    padding:12px 40px 10px; color:white;
-    position:relative; z-index:2; pointer-events:none;
-
-    // pixel perfect margins
-    .digest-orig { padding-right:15px; }
-    .digest-type { padding-right:5px; }
-    .digest-dest { padding-left:15px; }
-    .digest-pasg { padding-left:8px; }
-
-    .digest-orig, 
-    .digest-dest { 
-        margin-bottom:7px; font-size:12px; text-transform:uppercase; 
-        text-overflow:ellipsis; white-space:nowrap; overflow:hidden; 
-    }
-    .digest-type, 
-    .digest-pasg { font-size:11px; }
-    [class*="ico-"]:before { font-size:16px; vertical-align:top; margin-right:2px; }
-}
