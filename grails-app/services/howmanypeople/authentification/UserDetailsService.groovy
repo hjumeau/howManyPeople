@@ -1,5 +1,6 @@
 package howmanypeople.authentification
 
+import howmanypeople.dto.UserAuthentication
 import org.codehaus.groovy.grails.plugins.springsecurity.GrailsUser
 import org.codehaus.groovy.grails.plugins.springsecurity.GrailsUserDetailsService
 import org.codehaus.groovy.grails.plugins.springsecurity.SpringSecurityUtils
@@ -82,6 +83,7 @@ class UserDetailsService implements GrailsUserDetailsService {
 		def conf = SpringSecurityUtils.securityConfig
 
 		String usernamePropertyName = conf.userLookup.usernamePropertyName
+		String emailPropertyName = grailsApplication.config.userLookup.emailPropertyName
 		String passwordPropertyName = conf.userLookup.passwordPropertyName
 		String enabledPropertyName = conf.userLookup.enabledPropertyName
 		String accountExpiredPropertyName = conf.userLookup.accountExpiredPropertyName
@@ -89,13 +91,14 @@ class UserDetailsService implements GrailsUserDetailsService {
 		String passwordExpiredPropertyName = conf.userLookup.passwordExpiredPropertyName
 
 		String username = user."$usernamePropertyName"
+		String email = user."$emailPropertyName"
 		String password = user."$passwordPropertyName"
 		boolean enabled = enabledPropertyName ? user."$enabledPropertyName" : true
 		boolean accountExpired = accountExpiredPropertyName ? user."$accountExpiredPropertyName" : false
 		boolean accountLocked = accountLockedPropertyName ? user."$accountLockedPropertyName" : false
 		boolean passwordExpired = passwordExpiredPropertyName ? user."$passwordExpiredPropertyName" : false
 
-		new GrailsUser(username, password, enabled, !accountExpired, !passwordExpired,
+		new UserAuthentication(username, email, password, enabled, !accountExpired, !passwordExpired,
 				!accountLocked, authorities, user.id)
 	}
 

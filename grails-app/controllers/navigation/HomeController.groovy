@@ -1,7 +1,6 @@
 package navigation
 
 import grails.converters.JSON
-import howmanypeople.Consumer
 
 class HomeController {
 
@@ -18,7 +17,7 @@ class HomeController {
     def userDetails(){
         if (springSecurityService.isLoggedIn()) {
             def userDetails = springSecurityService.getPrincipal()
-            def consumer = consumerService.getById(userDetails.getId())
+            def consumer = consumerService.buildConsumer(userDetails)
             render consumer as JSON
         }
         else {
