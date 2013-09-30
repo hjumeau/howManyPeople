@@ -1,6 +1,12 @@
+import howmanypeople.ConsumerService
+import howmanypeople.authentification.UserDetailsService
+import howmanypeople.authentification.UserDetailsService
+
 // Place your Spring DSL code here
 beans = {
-	userDetailsService(com.howmanypeople.authentication.UserDetailsService){
+	userDetailsService(UserDetailsService){
 		grailsApplication = ref("grailsApplication")
 	}
+
+    ConsumerService(){}
 }
