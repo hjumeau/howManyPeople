@@ -1,0 +1,7 @@
+.settings/
+.project
+target/
+howmanypeople-grailsPlugins.iml
+howmanypeople.iml
+.buildpath
+.classpath
