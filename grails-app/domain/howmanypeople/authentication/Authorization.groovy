@@ -1,4 +1,4 @@
-package com.howmanypeople.authentication
+package howmanypeople.authentication
 
 import org.apache.commons.lang.builder.HashCodeBuilder
 

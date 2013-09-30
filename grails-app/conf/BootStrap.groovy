@@ -1,6 +1,6 @@
-import com.howmanypeople.authentication.Authorization
-import com.howmanypeople.authentication.Role
-import com.howmanypeople.authentication.User
+import howmanypeople.authentication.Authorization
+import howmanypeople.authentication.Role
+import howmanypeople.authentication.User
 
 
 class BootStrap {

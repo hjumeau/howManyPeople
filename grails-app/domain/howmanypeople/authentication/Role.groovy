@@ -1,4 +1,4 @@
-package com.howmanypeople.authentication
+package howmanypeople.authentication
 
 class Role {
 

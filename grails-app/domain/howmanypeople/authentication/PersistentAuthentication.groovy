@@ -1,6 +1,4 @@
-package com.howmanypeople.authentication
-
-import java.util.Date;
+package howmanypeople.authentication
 
 class PersistentAuthentication {
 

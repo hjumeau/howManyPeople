@@ -91,11 +91,11 @@ log4j = {
 }
 
 // Added by the Spring Security Core plugin:
-grails.plugins.springsecurity.userLookup.userDomainClassName = 'com.howmanypeople.authentication.User'
-grails.plugins.springsecurity.userLookup.authorityJoinClassName = 'com.howmanypeople.authentication.Authorization'
-grails.plugins.springsecurity.authority.className = 'com.howmanypeople.authentication.Role'
+grails.plugins.springsecurity.userLookup.userDomainClassName = 'howmanypeople.authentication.User'
+grails.plugins.springsecurity.userLookup.authorityJoinClassName = 'howmanypeople.authentication.Authorization'
+grails.plugins.springsecurity.authority.className = 'howmanypeople.authentication.Role'
 grails.plugins.springsecurity.rememberMe.persistent = true
-grails.plugins.springsecurity.rememberMe.persistentToken.domainClassName = 'com.howmanypeople.authentication.PersistentAuthentication'
+grails.plugins.springsecurity.rememberMe.persistentToken.domainClassName = 'howmanypeople.authentication.PersistentAuthentication'
 //add email field for authentication
 userLookup.emailPropertyName = 'email'
 //ember templates precompiler config
