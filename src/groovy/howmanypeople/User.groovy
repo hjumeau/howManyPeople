@@ -6,7 +6,7 @@ package howmanypeople
  * Time: 18:38
  * To change this template use File | Settings | File Templates.
  */
-class Consumer {
+class User {
     String name
     String email
 }

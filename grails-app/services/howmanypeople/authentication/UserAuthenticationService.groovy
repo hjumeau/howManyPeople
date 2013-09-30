@@ -1,6 +1,5 @@
-package howmanypeople.authentification
+package howmanypeople.authentication
 
-import howmanypeople.dto.UserAuthentication
 import org.codehaus.groovy.grails.plugins.springsecurity.GrailsUser
 import org.codehaus.groovy.grails.plugins.springsecurity.GrailsUserDetailsService
 import org.codehaus.groovy.grails.plugins.springsecurity.SpringSecurityUtils
@@ -11,7 +10,7 @@ import org.springframework.security.core.authority.GrantedAuthorityImpl
 import org.springframework.security.core.userdetails.UserDetails
 import org.springframework.security.core.userdetails.UsernameNotFoundException
 
-class UserDetailsService implements GrailsUserDetailsService {
+class UserAuthenticationService implements GrailsUserDetailsService {
 
 	private Logger _log = LoggerFactory.getLogger(getClass())
 

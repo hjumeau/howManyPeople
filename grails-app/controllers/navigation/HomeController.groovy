@@ -8,7 +8,7 @@ class HomeController {
      * Dependency injection for the springSecurityService.
      */
     def springSecurityService
-    def consumerService
+    def userService
 
 	def index(){
 		render(view:'/index')
@@ -17,8 +17,8 @@ class HomeController {
     def userDetails(){
         if (springSecurityService.isLoggedIn()) {
             def userDetails = springSecurityService.getPrincipal()
-            def consumer = consumerService.buildConsumer(userDetails)
-            render consumer as JSON
+            def user = userService.buildConsumer(userDetails)
+            render user as JSON
         }
         else {
             render status: 401
