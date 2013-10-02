@@ -17,7 +17,7 @@ class HomeController {
     def userDetails(){
         if (springSecurityService.isLoggedIn()) {
             def userDetails = springSecurityService.getPrincipal()
-            def user = userService.buildConsumer(userDetails)
+            def user = userService.buildUser(userDetails)
             render user as JSON
         }
         else {
