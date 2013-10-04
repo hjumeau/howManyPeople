@@ -14,7 +14,7 @@ App.ApplicationRoute = Ember.Route.extend({
         return user;
     },
     setupController: function (controller, user) {
-        controller.set('model', user);
+        this.controllerFor('authentication').set('model', user);
     }
 });
 
@@ -30,3 +30,10 @@ App.HomeRoute = App.AuthenticatedRoute.extend({
     }
 });
 
+App.LoginRoute = Ember.Route.extend({
+    beforeModel: function(transition) {
+        if (!this.controllerFor('authentication').get('user')) {
+            this.transitionTo('home');
+        }
+    }
+});

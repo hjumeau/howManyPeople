@@ -1,4 +1,4 @@
-App.ApplicationController = Ember.Controller.extend({
+App.AuthenticationController = Ember.Controller.extend({
     currentUser: function() {
         return this.get('model').getProperties();
     }.property('model'),
