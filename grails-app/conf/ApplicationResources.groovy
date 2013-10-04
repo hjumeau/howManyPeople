@@ -10,7 +10,7 @@ modules = {
 		defaultBundle 'app'
         resource url:'js/Application.js'
         resource url:'js/authentication/User.js'
-        resource url:'js/ApplicationController.js'
+    	resource url:'js/authentication/AuthenticationController.js'
         resource url:'js/authentication/AuthenticatedRoute.js'
 		resource url:'js/authentication/LoginController.js'
 		resource url:'js/Router.js'

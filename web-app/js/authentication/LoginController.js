@@ -1,5 +1,7 @@
 App.LoginController = Ember.Controller.extend({
 
+	needs:['authentication'], 
+	
     reset: function () {
         this.setProperties({
             username: "",
@@ -7,11 +9,6 @@ App.LoginController = Ember.Controller.extend({
             errorMessage: ""
         });
     },
-
-    user: null,
-    /*tokenChanged: function() {
-     localStorage.token = this.get('token');
-     }.observes('token'),*/
 
     actions: {
         login: function () {
@@ -29,15 +26,14 @@ App.LoginController = Ember.Controller.extend({
 
                 //self.set('errorMessage', response.message);
                 if (response.success) {
-                    self.set('user', response);
+                    self.get('controllers.authentication').set('model',response);
 
                     var attemptedTransition = self.get('attemptedTransition');
                     if (attemptedTransition) {
                         self.set('attemptedTransition', null);
                         attemptedTransition.retry();
                     } else {
-                        // Redirect to 'articles' by default.
-                        self.transitionToRoute('index');
+                        self.transitionToRoute('home');
                     }
                 }
             });

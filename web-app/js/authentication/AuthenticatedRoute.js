@@ -1,7 +1,7 @@
 App.AuthenticatedRoute = Ember.Route.extend({
-
+	
     beforeModel: function(transition) {
-        if (!this.controllerFor('login').get('user')) {
+        if (!this.modelFor('application').isAuthenticate()) {
             this.redirectToLogin(transition);
         }
     },
