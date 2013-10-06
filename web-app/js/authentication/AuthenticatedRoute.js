@@ -1,24 +1,28 @@
 App.AuthenticatedRoute = Ember.Route.extend({
-	
-    beforeModel: function(transition) {
-        if (!this.modelFor('application').isAuthenticate()) {
-            this.redirectToLogin(transition);
-        }
-    },
 
-    redirectToLogin: function(transition) {
-        var loginController = this.controllerFor('login');
-        loginController.set('attemptedTransition', transition);
-        this.transitionTo('login');
-    },
+	beforeModel : function(transition) {
+		if (!App.User.isAuthenticate()) {
+			return $.getJSON('/HowManyPeople/user').then(function(data){
+				App.User.setProperties(data);
+			});
+		}
+	},
 
-    events: {
-        error: function(reason, transition) {
-            if (reason.status === 401) {
-                this.redirectToLogin(transition);
-            } else {
-                this.transitionTo('login',{errorMessage:reason});
-            }
-        }
-    }
+	redirectToLogin : function(transition) {
+		var loginController = this.controllerFor('login');
+		loginController.set('attemptedTransition', transition);
+		this.transitionTo('login');
+	},
+
+	events : {
+		error : function(reason, transition) {
+			if (reason.status === 401) {
+				this.redirectToLogin(transition);
+			} else {
+				this.transitionTo('login', {
+					errorMessage : reason
+				});
+			}
+		}
+	}
 });

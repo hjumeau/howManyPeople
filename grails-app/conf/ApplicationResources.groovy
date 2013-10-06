@@ -13,6 +13,8 @@ modules = {
     	resource url:'js/authentication/AuthenticationController.js'
         resource url:'js/authentication/AuthenticatedRoute.js'
 		resource url:'js/authentication/LoginController.js'
+		resource url:'js/authentication/LoginRoute.js'
+		resource url:'js/home/HomeRoute.js'
 		resource url:'js/Router.js'
 
 		resource url:'js/templates/application.embbars', attrs:[type:'js'], bundle:'app'
@@ -22,7 +24,7 @@ modules = {
 
 		resource url:'js/header/HeaderView.js'
 		resource url:'js/authentication/LoginView.js'
-		resource url:'js/HomeView.js'
+		resource url:'js/home/HomeView.js'
         resource url:'js/ApplicationView.js'
     }
 	style {

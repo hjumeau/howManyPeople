@@ -26,7 +26,7 @@ App.LoginController = Ember.Controller.extend({
 
                 //self.set('errorMessage', response.message);
                 if (response.success) {
-                    self.get('controllers.authentication').set('model',response);
+                    App.User.setProperties(response);
 
                     var attemptedTransition = self.get('attemptedTransition');
                     if (attemptedTransition) {
