@@ -1,3 +1,4 @@
 App.LoginView = Ember.View.extend({
-    templateName : 'authentication/login'
+    templateName : 'authentication/login',
+    classNames:['login']
 });
