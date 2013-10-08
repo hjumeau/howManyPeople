@@ -18,7 +18,7 @@ body {
     height:580px;
     //outline:2px solid lime;
     background:white;
-    
+
     // home page is NOT scrollable
     &.home { overflow:hidden; }
     // result page is scrollable
@@ -26,6 +26,10 @@ body {
 }
 
 .main-view-wrapper { padding:0; margin:0; }
+
+a:hover, a:active {
+  outline: none; /* prevents outline in webkit on active links but retains it for tab focus */
+}
 
 @media (max-width:650px) {
     body,
