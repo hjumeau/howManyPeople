@@ -10,7 +10,6 @@ modules = {
 		defaultBundle 'app'
         resource url:'js/Application.js'
         resource url:'js/authentication/User.js'
-    	resource url:'js/authentication/AuthenticationController.js'
         resource url:'js/authentication/AuthenticatedRoute.js'
 		resource url:'js/authentication/LoginController.js'
 		resource url:'js/authentication/LoginRoute.js'
@@ -28,9 +27,11 @@ modules = {
         resource url:'js/ApplicationView.js'
     }
 	style {
+		resource url:'fonts/icons/style.css'
+		resource url:'css/bootstrap.css'
 		resource url:'css/structure.less', attrs:[rel: "stylesheet/less", type:'css'], bundle:'bundle_style'
 		resource url:'css/login.less', attrs:[rel: "stylesheet/less", type:'css'], bundle:'bundle_style'
-			resource url:'css/header.less', attrs:[rel: "stylesheet/less", type:'css'], bundle:'bundle_style'
+		resource url:'css/header.less', attrs:[rel: "stylesheet/less", type:'css'], bundle:'bundle_style'
 		resource url:'css/needforbundle.css'
 	}
 }

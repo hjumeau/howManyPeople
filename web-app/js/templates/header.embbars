@@ -1,1 +1,1 @@
-<input type="button" class="menu" {{action 'showMenu'}} />
+<a {{action 'showMenu'}} class="menu-home icon-menu-2"></a>
