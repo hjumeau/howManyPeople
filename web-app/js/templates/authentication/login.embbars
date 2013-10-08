@@ -1,6 +1,11 @@
-<form class="form-inline" {{action login on="submit"}}>
-    <h2>Log In</h2>
-    {{input value=username type="text" placeholder="Username/Email"}}
-    {{input value=password type="password" placeholder="Password"}}
-    {{input class="btn" type="submit" value="Log In"}}
+<form class="form-horizontal" {{action login on="submit"}}>
+    <div class="control-group">
+        {{input value=username type="text" placeholder="Username/Email"}}
+    </div>
+    <div class="control-group">
+        {{input value=password type="password" placeholder="Password"}}
+    </div>
+    <div class="control-group">
+        {{input class="btn" type="submit" value="Log In"}}
+    </div>
 </form>
