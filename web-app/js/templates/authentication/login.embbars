@@ -6,6 +6,10 @@
         {{input value=password type="password" placeholder="Password"}}
     </div>
     <div class="control-group">
-        {{input class="btn" type="submit" value="Log In"}}
+        {{input type="checkbox" value=rememberMe}} Se souvenir de moi
+    </div>
+    <div class="control-group">
+        {{input class="btn btn-large btn-block btn-success" type="submit" value="Connexion"}}
     </div>
 </form>
+<a {{action register}} class="btn btn-link">S'incrire</a>
