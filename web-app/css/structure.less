@@ -1,39 +1,59 @@
-html, body,
-.application-view-wrapper {
-    height:100%;
+html, body{
+  height: 100%;
 }
 
 body {
-    position:relative;
-    margin:50px auto 0;
-    background:#ccc;
-    //overflow: hidden;
+  position: relative;
+  margin: 50px auto 0;
+  background: #ccc;
+  //overflow: hidden;
 }
 
 .application-view-wrapper {
-    margin:0 auto;
-    position:relative;
-    width:320px;
-    //min-height:100%;
-    height:580px;
-    //outline:2px solid lime;
-    background:white;
+  margin: 0 auto;
+  position: relative;
+  width: 320px;
+  //min-height:100%;
+  height: 580px;
+  //outline:2px solid lime;
+  background: #ffb76b; /* Old browsers */
+  background: -moz-radial-gradient(center, ellipse cover, #ffb76b 0%, #ffa73d 44%, #ffa73d 51%, #ff7f04 100%); /* FF3.6+ */
+  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, #ffb76b), color-stop(44%, #ffa73d), color-stop(51%, #ffa73d), color-stop(100%, #ff7f04));
+  /* Chrome,Safari4+ */
+  background: -webkit-radial-gradient(center, ellipse cover, #ffb76b 0%, #ffa73d 44%, #ffa73d 51%, #ff7f04 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-radial-gradient(center, ellipse cover, #ffb76b 0%, #ffa73d 44%, #ffa73d 51%, #ff7f04 100%); /* Opera 12+ */
+  background: -ms-radial-gradient(center, ellipse cover, #ffb76b 0%, #ffa73d 44%, #ffa73d 51%, #ff7f04 100%); /* IE10+ */
+  background: radial-gradient(ellipse at center, #ffb76b 0%, #ffa73d 44%, #ffa73d 51%, #ff7f04 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffb76b', endColorstr='#ff7f04', GradientType=1);
+  /* IE6-9 fallback on horizontal gradient */
+  //overflow: hidden;
 
-    // home page is NOT scrollable
-    &.home { overflow:hidden; }
-    // result page is scrollable
-    &.results { overflow:visible; }
+  // home page is NOT scrollable
+  &.home {
+    overflow: hidden;
+  }
+  // result page is scrollable
+  &.results {
+    overflow: visible;
+  }
 }
 
-.main-view-wrapper { padding:0; margin:0; }
+.main-view-wrapper {
+  padding: 0;
+  margin: 0;
+  background: white;
+  height: 100%;
+}
 
 a:hover, a:active {
   outline: none; /* prevents outline in webkit on active links but retains it for tab focus */
 }
 
 @media (max-width:650px) {
-    body,
-    .application-view-wrapper {
-        width:auto; margin:0; padding:0;
-    }
+  body,
+  .application-view-wrapper {
+    width: auto;
+    margin: 0;
+    padding: 0;
+  }
 }

@@ -8,7 +8,9 @@ class UrlMappings {
 		}
 
 		"/"(controller:"home", action:"index")
-		"/user"(controller:"home", action:"userDetails")
+		"/user"(controller:"user"){
+            action = [GET: "show", POST:"save"]
+        }
 		"500"(view:'/error')
 	}
 }

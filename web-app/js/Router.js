@@ -1,6 +1,7 @@
 App.Router.map(function() {
 	this.route('home');
-	this.route('login');
+	this.resource('login');
+	this.route('registration');
 });
 
 App.ApplicationRoute = Ember.Route.extend({

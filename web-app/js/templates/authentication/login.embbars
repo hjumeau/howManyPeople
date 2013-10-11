@@ -12,4 +12,4 @@
         {{input class="btn btn-large btn-block btn-success" type="submit" value="Connexion"}}
     </div>
 </form>
-<a {{action register}} class="btn btn-link">S'incrire</a>
+<a {{action redirectToRegistration}} class="btn btn-link">S'incrire</a>
