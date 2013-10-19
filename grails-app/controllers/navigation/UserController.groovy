@@ -1,6 +1,7 @@
 package navigation
 
 import grails.converters.JSON
+import howmanypeople.authentication.UserAuthenticationService;
 
 class UserController {
 
@@ -9,9 +10,11 @@ class UserController {
      */
     def springSecurityService
     def userService
+    def userAuthenticationService
 
     def save() {
-        def user = userService.createUser(params.username, params.email, params.password)
+        def user = userAuthenticationService.createUser(params.username, params.email, params.password)
+		userAuthenticationService.autoLogin(request, user)
         render ([username: user.name, email: user.email, success: true] as JSON)
     }
 

@@ -31,7 +31,7 @@ class Authorization implements Serializable {
 	static Authorization create(User user, Role role, boolean flush = false) {
 		new Authorization(user: user, role: role).save(flush: flush, insert: true)
 	}
-
+	
 	static boolean remove(User user, Role role, boolean flush = false) {
 		Authorization instance = Authorization.findByUserAndRole(user, role)
 		if (!instance) {
