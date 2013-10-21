@@ -30,6 +30,7 @@ modules = {
 		resource url:'css/structure.less', attrs:[rel: "stylesheet/less", type:'css'], bundle:'bundle_style'
 		resource url:'css/login.less', attrs:[rel: "stylesheet/less", type:'css'], bundle:'bundle_style'
 		resource url:'css/header.less', attrs:[rel: "stylesheet/less", type:'css'], bundle:'bundle_style'
+		resource url:'css/component.css'
 		resource url:'css/needforbundle.css'
 	}
 }
