@@ -30,12 +30,12 @@ modules = {
         resource url:'js/ApplicationView.js'
     }
 	style {
-		resource url:'fonts/icons/style.css'
-		resource url:'css/bootstrap_custom.css'
-		resource url:'css/structure.less', attrs:[rel: "stylesheet/less", type:'css'], bundle:'bundle_style'
-		resource url:'css/authentication.less', attrs:[rel: "stylesheet/less", type:'css'], bundle:'bundle_style'
-		resource url:'css/header.less', attrs:[rel: "stylesheet/less", type:'css'], bundle:'bundle_style'
-		resource url:'css/component.css'
+        resource url:'css/structure.less', attrs:[rel: "stylesheet/less", type:'css'], bundle:'bundle_style'
+        resource url:'css/authentication.less', attrs:[rel: "stylesheet/less", type:'css'], bundle:'bundle_style'
+        resource url:'css/header.less', attrs:[rel: "stylesheet/less", type:'css'], bundle:'bundle_style'
+        resource url:'css/bootstrap_custom.css'
+        resource url:'fonts/icons/style.css'
+        resource url:'css/component.css'
 		resource url:'css/needforbundle.css'
 	}
 }

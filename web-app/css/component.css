@@ -48,13 +48,7 @@
     font-weight: bold;
 }
 
-.gn-menu-wrapper {
-    position: fixed;
-    top: 60px;
-    bottom: 0;
-    left: 0;
-    overflow: hidden;
-    width: 60px;
+.gn-menu-wrapper ul{
     margin: 0;
     padding: 0;
     background: white;
@@ -64,6 +58,17 @@
     font-weight: 300;
     font-family: 'Lato', Arial, sans-serif;
     line-height: 60px;
+}
+
+.gn-menu-wrapper {
+    position: fixed;
+    top: 60px;
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+    width: 60px;
+    background: white;
+    list-style: none;
     border-top: 1px solid #c6d0da;
     -webkit-transform: translateX(-60px);
     -moz-transform: translateX(-60px);
