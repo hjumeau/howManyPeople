@@ -1,4 +1,4 @@
-App.LoginController = Ember.Controller.extend({
+App.RegistrationController = Ember.Controller.extend({
 
     reset: function () {
         this.setProperties({
@@ -9,18 +9,14 @@ App.LoginController = Ember.Controller.extend({
     },
 
     actions: {
-        login: function () {
+        register: function () {
 
             var self = this;
-            var data = {
-                j_username: this.get('username'),
-                j_password: this.get('password')
-            };
-
+            var data = this.getProperties('username','email','password,');
             // Clear out any error messages.
             //this.set('errorMessage', null);
 
-            $.post('/HowManyPeople/j_spring_security_check', data).then(function (response) {
+            $.post('/HowManyPeople/user', data).then(function (response) {
 
                 //self.set('errorMessage', response.message);
                 if (response.success) {
@@ -36,8 +32,8 @@ App.LoginController = Ember.Controller.extend({
                 }
             });
         },
-        redirectToRegistration:function (){
-            this.transitionToRoute('registration')
+        redirectToLogin:function (){
+            this.transitionToRoute('login')
         }
     }
 });
