@@ -14,19 +14,20 @@ modules = {
 		resource url:'js/authentication/LoginController.js'
 		resource url:'js/authentication/LoginRoute.js'
 		resource url:'js/authentication/RegistrationController.js'
-		resource url:'js/home/HomeRoute.js'
+        resource url:'js/home/HomeController.js'
+        resource url:'js/home/HomeRoute.js'
 		resource url:'js/Router.js'
 
 		resource url:'js/templates/application.embbars', attrs:[type:'js'], bundle:'app'
-		resource url:'js/templates/header.embbars', attrs:[type:'js'], bundle:'app'
 		resource url:'js/templates/home.embbars', attrs:[type:'js'], bundle:'app'
+		resource url:'js/templates/home-menu.embbars', attrs:[type:'js'], bundle:'app'
 		resource url:'js/templates/authentication/login.embbars', attrs:[type:'js'], bundle:'app'
 		resource url:'js/templates/authentication/registration.embbars', attrs:[type:'js'], bundle:'app'
 
-		resource url:'js/header/HeaderView.js'
 		resource url:'js/authentication/LoginView.js'
 		resource url:'js/authentication/RegistrationView.js'
 		resource url:'js/home/HomeView.js'
+		resource url:'js/home/menu/HomeMenuView.js'
         resource url:'js/ApplicationView.js'
     }
 	style {

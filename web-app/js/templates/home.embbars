@@ -1,7 +1,10 @@
 <header>
-    {{render header}}
+    <a {{action 'showMenu'}} class="menu-home icon-menu-2"></a>
 </header>
 <section class="main-view-wrapper">
+	 <nav {{bind-attr class=":gn-menu-wrapper shouldDisplay:gn-open-all"}}>
+		{{render home-menu}}
+	 </nav>
     <h2>Welcome to Ember.js</h2>
     <ul>
         {{#each item in model}}
