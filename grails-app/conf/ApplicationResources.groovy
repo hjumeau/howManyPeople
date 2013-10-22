@@ -14,7 +14,8 @@ modules = {
 		resource url:'js/authentication/LoginController.js'
 		resource url:'js/authentication/LoginRoute.js'
 		resource url:'js/authentication/RegistrationController.js'
-		resource url:'js/home/HomeRoute.js'
+        resource url:'js/header/HeaderController.js'
+        resource url:'js/home/HomeRoute.js'
 		resource url:'js/Router.js'
 
 		resource url:'js/templates/application.embbars', attrs:[type:'js'], bundle:'app'
@@ -35,7 +36,7 @@ modules = {
         resource url:'css/header.less', attrs:[rel: "stylesheet/less", type:'css'], bundle:'bundle_style'
         resource url:'css/bootstrap_custom.css'
         resource url:'fonts/icons/style.css'
-        resource url:'css/component.css'
+        resource url:'css/component_new.css'
 		resource url:'css/needforbundle.css'
 	}
 }
