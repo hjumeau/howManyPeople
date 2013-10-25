@@ -12,4 +12,4 @@
         {{input class="btn btn-large btn-block btn-info" type="submit" value="Inscription"}}
     </div>
 </form>
-<a {{action redirectToLogin}} class="btn btn-link">Déja inscrit</a>
+<a {{action goToLog}} class="btn btn-link">Déja inscrit</a>

@@ -4,9 +4,6 @@ import grails.converters.JSON
 
 class UserController {
 
-    /**
-     * Dependency injection for the springSecurityService.
-     */
     def springSecurityService
     def userService
 

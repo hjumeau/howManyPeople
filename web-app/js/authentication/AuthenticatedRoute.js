@@ -2,10 +2,7 @@ App.AuthenticatedRoute = Ember.Route.extend({
 
 	beforeModel : function(transition) {
 		if (!this.get('currentUser').isAuthenticate()) {
-            var self = this;
-			return $.getJSON('/HowManyPeople/user').then(function(data){
-                self.get('currentUser').setProperties(data);
-			});
+            this.redirectToLogin(transition);
 		}
 	},
 

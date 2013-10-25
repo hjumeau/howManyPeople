@@ -1,5 +1,5 @@
 <header>
-    <a {{action 'showMenu'}} class="menu-home icon-menu-2"></a>
+    <a {{action showMenu}} class="menu-home ap-icon icon-menu-2"></a>
 </header>
 <section class="main-view-wrapper">
 	 <nav {{bind-attr class=":gn-menu-wrapper shouldDisplay:gn-open-all"}}>

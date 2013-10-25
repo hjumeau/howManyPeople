@@ -6,14 +6,6 @@
     box-sizing: border-box;
 }
 
-@font-face {
-    font-weight: normal;
-    font-style: normal;
-    font-family: 'ecoicons';
-    src: url("fonts/ecoicons/ecoicons.eot");
-    src: url("fonts/ecoicons/ecoicons.eot?#iefix") format("embedded-opentype"), url("fonts/ecoicons/ecoicons.woff") format("woff"), url("fonts/ecoicons/ecoicons.ttf") format("truetype"), url("fonts/ecoicons/ecoicons.svg#ecoicons") format("svg");
-}
-
 /* no-touch ack for ios */
 .no-touch .gn-menu-wrapper a:hover {
     background: #5f6f81;
@@ -106,54 +98,10 @@
     font-weight: normal;
     font-style: normal;
     font-variant: normal;
-    font-family: 'ecoicons';
+    font-family: 'icomoon';
     line-height: 1;
     speak: none;
     -webkit-font-smoothing: antialiased;
-}
-
-.gn-icon-help::before {
-    content: "\e000"
-}
-
-.gn-icon-earth::before {
-    content: "\e004"
-}
-
-.gn-icon-cog::before {
-    content: "\e006"
-}
-
-.gn-icon-search::before {
-    content: "\e005"
-}
-
-.gn-icon-download::before {
-    content: "\e007"
-}
-
-.gn-icon-photoshop::before {
-    content: "\e001"
-}
-
-.gn-icon-illustrator::before {
-    content: "\e002"
-}
-
-.gn-icon-archive::before {
-    content: "\e00d"
-}
-
-.gn-icon-article::before {
-    content: "\e003"
-}
-
-.gn-icon-pictures::before {
-    content: "\e008"
-}
-
-.gn-icon-videos::before {
-    content: "\e009"
 }
 
 /* if an icon anchor has a span, hide the span */
@@ -163,16 +111,6 @@
     height: 0;
     display: block;
     overflow: hidden;
-}
-
-.gn-icon-menu::before {
-    margin-left: -15px;
-    vertical-align: -2px;
-    width: 30px;
-    height: 3px;
-    background: #5f6f81;
-    box-shadow: 0 3px white, 0 -6px #5f6f81, 0 -9px white, 0 -12px #5f6f81;
-    content: '';
 }
 
 .no-touch .gn-icon-menu:hover::before,

@@ -14,6 +14,7 @@ modules = {
 		resource url:'js/authentication/LoginController.js'
 		resource url:'js/authentication/LoginRoute.js'
 		resource url:'js/authentication/RegistrationController.js'
+		resource url:'js/home/menu/HomeMenuController.js'
         resource url:'js/home/HomeController.js'
         resource url:'js/home/HomeRoute.js'
 		resource url:'js/Router.js'

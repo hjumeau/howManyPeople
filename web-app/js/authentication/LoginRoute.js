@@ -3,5 +3,8 @@ App.LoginRoute = Ember.Route.extend({
 		if (this.get('currentUser').isAuthenticate()) {
 			this.transitionTo('home');
 		}
+	},
+	setupController : function(controller, context) {
+		controller.reset();
 	}
 });

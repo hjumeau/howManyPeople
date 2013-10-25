@@ -32,7 +32,7 @@ App.RegistrationController = Ember.Controller.extend({
                 }
             });
         },
-        redirectToLogin:function (){
+        goToLog:function (){
             this.transitionToRoute('login')
         }
     }
