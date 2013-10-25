@@ -1,6 +1,6 @@
 App.LoginRoute = Ember.Route.extend({
 	beforeModel : function(transition) {
-		if (App.User.isAuthenticate()) {
+		if (this.get('currentUser').isAuthenticate()) {
 			this.transitionTo('home');
 		}
 	}

@@ -20,7 +20,7 @@ App.RegistrationController = Ember.Controller.extend({
 
                 //self.set('errorMessage', response.message);
                 if (response.success) {
-                    App.User.setProperties(response);
+                    this.get('currentUser').setProperties(response);
 
                     var attemptedTransition = self.get('attemptedTransition');
                     if (attemptedTransition) {
