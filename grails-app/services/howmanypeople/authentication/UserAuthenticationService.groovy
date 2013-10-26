@@ -1,14 +1,19 @@
 package howmanypeople.authentication
 
-import org.codehaus.groovy.grails.plugins.springsecurity.GrailsUser
+import javax.servlet.http.HttpServletRequest
+
 import org.codehaus.groovy.grails.plugins.springsecurity.GrailsUserDetailsService
 import org.codehaus.groovy.grails.plugins.springsecurity.SpringSecurityUtils
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken
+import org.springframework.security.core.Authentication
 import org.springframework.security.core.GrantedAuthority
 import org.springframework.security.core.authority.GrantedAuthorityImpl
+import org.springframework.security.core.context.SecurityContextHolder
 import org.springframework.security.core.userdetails.UserDetails
 import org.springframework.security.core.userdetails.UsernameNotFoundException
+import org.springframework.security.web.authentication.WebAuthenticationDetails
 
 class UserAuthenticationService implements GrailsUserDetailsService {
 
@@ -24,6 +29,8 @@ class UserAuthenticationService implements GrailsUserDetailsService {
 	/** Dependency injection for the application. */
 	def grailsApplication
 
+	def authenticationManager
+	
 	/**
 	 * {@inheritDoc}
 	 * @see org.codehaus.groovy.grails.plugins.springsecurity.GrailsUserDetailsService
@@ -62,6 +69,46 @@ class UserAuthenticationService implements GrailsUserDetailsService {
 		loadUserByUsername username, true
 	}
 
+	/**
+	 * Create spring security userAuthentication 
+	 * @param username
+	 * @param email
+	 * @param password
+	 * @return userAuthentication
+	 */
+	User createUser(String username, String email, String password) {
+		def user = new User(username: username,
+				password: password,
+				email: email,
+				enabled: true)
+		user.save()
+		def role = Role.findWhere(authority:Role.ROLE_DEFAULT)
+		Authorization.create(user, role, true)
+		user
+	}
+	
+	/**
+	 * Automatic login after successful registration.
+	 * @param request
+	 * @param username
+	 */
+	void autoLogin(HttpServletRequest request, User user) {
+		try {
+		  // Must be called from request filtered by Spring Security, otherwise SecurityContextHolder is not updated
+		  Collection<GrantedAuthority> grantedAuthority = user.getAuthorities().collect {
+			  new GrantedAuthorityImpl(it.authority)
+		  }
+		  UsernamePasswordAuthenticationToken token = new UsernamePasswordAuthenticationToken(user.username, user.password, grantedAuthority);
+		  token.setDetails(new WebAuthenticationDetails(request));
+		  Authentication authentication = authenticationManager.authenticate(token);
+		  log.debug("Logging in with {}", authentication.getPrincipal());
+		  SecurityContextHolder.getContext().setAuthentication(authentication);
+		} catch (Exception e) {
+		  SecurityContextHolder.getContext().setAuthentication(null);
+		  log.error("Failure in autoLogin", e);
+		}
+	  }
+	
 	protected Collection<GrantedAuthority> loadAuthorities(user, String username, boolean loadRoles) {
 		if (!loadRoles) {
 			return []

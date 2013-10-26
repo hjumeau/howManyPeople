@@ -12,7 +12,7 @@ App.RegistrationController = Ember.Controller.extend({
         register: function () {
 
             var self = this;
-            var data = this.getProperties('username','email','password,');
+            var data = this.getProperties('username','email','password');
             // Clear out any error messages.
             //this.set('errorMessage', null);
 
