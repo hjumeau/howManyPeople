@@ -10,9 +10,10 @@ class UserController {
     def userAuthenticationService
 
     def save() {
-        def user = userAuthenticationService.createUser(params.username, params.email, params.password)
-		userAuthenticationService.autoLogin(request, user)
-        render ([username: user.name, email: user.email, success: true] as JSON)
+        def userDetails = userAuthenticationService.saveUser(params.username, params.email, params.password)
+		userAuthenticationService.autoLogin(request, params.username, params.password, userDetails)
+		def user = userService.buildUser(userDetails)
+        render ([user: user, success: true] as JSON)
     }
 
     def show() {
