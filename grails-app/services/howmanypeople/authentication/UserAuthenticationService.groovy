@@ -19,7 +19,7 @@ import org.springframework.security.web.context.HttpSessionSecurityContextReposi
 
 class UserAuthenticationService implements GrailsUserDetailsService {
 
-	private Logger _log = LoggerFactory.getLogger(getClass())
+	private Logger log = LoggerFactory.getLogger(getClass())
 
 	/**
 	 * Some Spring Security classes (e.g. RoleHierarchyVoter) expect at least one role, so
@@ -80,7 +80,7 @@ class UserAuthenticationService implements GrailsUserDetailsService {
 	 * @param password
 	 * @return userAuthentication
 	 */
-	UserDetails saveUser(String username, String email, String password) {
+	UserDetails saveUser(String username, String email, String password) throws DomainConstraintException {
 		def user = new User(username: username,password: password,email: email,enabled: true)
 		if(user.save()){
             def role = Role.findWhere(authority:Role.ROLE_DEFAULT)
@@ -88,7 +88,7 @@ class UserAuthenticationService implements GrailsUserDetailsService {
             Collection<GrantedAuthority> authorities = loadAuthorities(user, username, true)
             createUserDetails user, authorities
         }else{
-            throw new DomainConstraintException('Constraint of the user class are not respect')
+            throw new DomainConstraintException('Constraint of the user class are not respect', user.errors)
         }
 	}
 
