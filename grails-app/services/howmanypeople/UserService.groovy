@@ -1,8 +1,6 @@
 package howmanypeople
 
-import howmanypeople.authentication.Authorization
-import howmanypeople.authentication.Role
-
+import howmanypeople.model.User
 import org.springframework.security.core.userdetails.UserDetails
 
 class UserService {

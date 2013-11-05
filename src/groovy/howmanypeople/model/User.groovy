@@ -1,4 +1,4 @@
-package howmanypeople
+package howmanypeople.model
 /**
  * Created with IntelliJ IDEA.
  * User: harry_jumeau

@@ -1,30 +1,32 @@
 package services;
 
 import static org.junit.Assert.*
+import grails.test.mixin.TestMixin
+import grails.test.mixin.support.GrailsUnitTestMixin
 import howmanypeople.authentication.Role
 import howmanypeople.authentication.UserAuthentication
+import howmanypeople.exception.DomainConstraintException
+import org.junit.Before
+import org.junit.Test
 
 import javax.servlet.http.HttpServletRequest
 
-import org.junit.Before
-import org.junit.Test
 import org.springframework.mock.web.MockHttpServletRequest
 import org.springframework.security.core.userdetails.UserDetails
 
-class UserAuthenticationServiceTest {
+class UserAuthenticationIntegrationServiceTests extends GroovyTestCase{
 
 	def userAuthenticationService
 	def springSecurityService
-	
-	@Before
+
 	void setUp(){
 		Role role = new Role(authority: Role.ROLE_DEFAULT)
 		role.save()
 	}
-	
-	@Test
-	void createUser() {
-		
+
+	void testCreateUser() {
+        Role role = new Role(authority: Role.ROLE_DEFAULT)
+        role.save()
 		UserAuthentication userAuth = userAuthenticationService.saveUser('thomas','email','password')
 		
 		assertNotNull(userAuth)
@@ -39,10 +41,21 @@ class UserAuthenticationServiceTest {
 		assertEquals('email', userAuthInDB.email)
 		assertEquals(springSecurityService.encodePassword('password'), userAuthInDB.password)
 	}
+
+    void testCreateUserAlreadyExistException() {
+        Role role = new Role(authority: Role.ROLE_DEFAULT)
+        role.save()
+        UserAuthentication userAuth = userAuthenticationService.saveUser('thomas','email','password')
+        assertNotNull(userAuth)
+        shouldFail(DomainConstraintException){
+            userAuthenticationService.saveUser('thomas','email','password')
+        }
+    }
 	
-	@Test	
-	void autologinNewUser(){
-		
+
+	void testAutologinNewUser(){
+        Role role = new Role(authority: Role.ROLE_DEFAULT)
+        role.save()
 		UserDetails userAuth = userAuthenticationService.saveUser('thomas','email','password')
 		HttpServletRequest request = new MockHttpServletRequest()
 		

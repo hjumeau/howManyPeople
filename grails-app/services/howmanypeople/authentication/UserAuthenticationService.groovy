@@ -1,5 +1,7 @@
 package howmanypeople.authentication
 
+import howmanypeople.exception.DomainConstraintException
+
 import javax.servlet.http.HttpServletRequest
 
 import org.codehaus.groovy.grails.plugins.springsecurity.GrailsUserDetailsService
@@ -80,11 +82,14 @@ class UserAuthenticationService implements GrailsUserDetailsService {
 	 */
 	UserDetails saveUser(String username, String email, String password) {
 		def user = new User(username: username,password: password,email: email,enabled: true)
-		user.save()
-		def role = Role.findWhere(authority:Role.ROLE_DEFAULT)
-		Authorization.create(user, role, true)
-		Collection<GrantedAuthority> authorities = loadAuthorities(user, username, true)
-		createUserDetails user, authorities
+		if(user.save()){
+            def role = Role.findWhere(authority:Role.ROLE_DEFAULT)
+            Authorization.create(user, role, true)
+            Collection<GrantedAuthority> authorities = loadAuthorities(user, username, true)
+            createUserDetails user, authorities
+        }else{
+            throw new DomainConstraintException('Constraint of the user class are not respect')
+        }
 	}
 
 	/**
