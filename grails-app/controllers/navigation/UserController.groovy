@@ -22,10 +22,10 @@ class UserController {
 			render ([user: user, success: true] as JSON)
 
 		}catch(DomainConstraintException ex){
-			def errors = ex?.getFieldErrors().collect{
+			def errors = ex.errors?.getFieldErrors().collect{
 				new MessageFormat(it.getDefaultMessage(), RequestContextUtils.getLocale(request)).format(it.getArguments())
 			}
-			render errors : errors as JSON
+			render ([errors : errors] as JSON)
 		}
 	}
 

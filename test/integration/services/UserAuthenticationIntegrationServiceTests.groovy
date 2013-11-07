@@ -56,7 +56,7 @@ class UserAuthenticationIntegrationServiceTests{
 	}
 
 	@Test
-	void autologinNewUser(){
+	void autoLoginNewUser(){
 
 		UserDetails userAuth = userAuthenticationService.saveUser('thomas','email','password')
 		HttpServletRequest request = new MockHttpServletRequest()

@@ -1,32 +1,36 @@
 App.RegistrationController = Ember.Controller.extend({
 
-	reset : function() {
-		this.setProperties({
-			username : "",
-			password : "",
-			errorMessage : ""
-		});
-	},
+    errors: null,
 
-	actions : {
-		register : function() {
+    reset: function () {
+        this.setProperties({
+            username: "",
+            password: "",
+            errorMessage: ""
+        });
+    },
 
-			var self = this;
-			var data = this.getProperties('username', 'email', 'password');
-			// Clear out any error messages.
-			// this.set('errorMessage', null);
+    actions: {
+        register: function () {
 
-			$.post('/HowManyPeople/user', data).then(function(response) {
+            var self = this;
+            var data = this.getProperties('username', 'email', 'password');
+            // Clear out any error messages.
+            // this.set('errorMessage', null);
 
-				// self.set('errorMessage', response.message);
-				if (response.success) {
-					self.get('currentUser').setProperties(response.user);
-					self.transitionToRoute('home');
-				}
-			});
-		},
-		goToLog : function() {
-			this.transitionToRoute('login')
-		}
-	}
+            $.post('/HowManyPeople/user', data).then(function (response) {
+
+                // self.set('errorMessage', response.message);
+                if (response.success) {
+                    self.get('currentUser').setProperties(response.user);
+                    self.transitionToRoute('home');
+                } else {
+                    self.set('errors',response.errors);
+                }
+            });
+        },
+        goToLog: function () {
+            this.transitionToRoute('login')
+        }
+    }
 });

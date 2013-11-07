@@ -1,0 +1,10 @@
+<div>
+    <div class="errors">
+        {{#each errors}}
+            {{this}}
+        {{/each}}
+    </div>
+    <div>
+    {{yield}}
+    </div>
+</div>

@@ -1,5 +1,7 @@
 App.LoginController = Ember.Controller.extend({
 
+    errors: null,
+
     reset: function () {
         this.setProperties({
             username: "",

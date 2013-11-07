@@ -102,7 +102,7 @@ class UserAuthenticationService implements GrailsUserDetailsService {
 			// Must be called from request filtered by Spring Security, otherwise SecurityContextHolder is not updated
 			UsernamePasswordAuthenticationToken token = new UsernamePasswordAuthenticationToken(username, password, userDetails.authorities);
 			Authentication authentication = authenticationManager.authenticate(token);
-			log.debug(authentication.getPrincipal());
+			log.debug('authenticate user',authentication.getPrincipal());
 			SecurityContextHolder.getContext().setAuthentication(authentication);
 			request.getSession().setAttribute(
 				HttpSessionSecurityContextRepository.SPRING_SECURITY_CONTEXT_KEY, SecurityContextHolder.getContext());
