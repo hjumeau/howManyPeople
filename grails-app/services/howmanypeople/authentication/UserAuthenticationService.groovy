@@ -151,5 +151,5 @@ class UserAuthenticationService implements GrailsUserDetailsService {
 				!accountLocked, authorities, user.id)
 	}
 
-	protected Logger getLog() { _log }
+	protected Logger getLog() { log }
 }

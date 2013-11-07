@@ -6,7 +6,7 @@ App.LoginController = Ember.Controller.extend({
         this.setProperties({
             username: "",
             password: "",
-            errorMessage: ""
+            errors: null
         });
     },
 
@@ -20,11 +20,10 @@ App.LoginController = Ember.Controller.extend({
             };
 
             // Clear out any error messages.
-            //this.set('errorMessage', null);
+            this.set('errors', null);
 
             $.post('/HowManyPeople/j_spring_security_check', data).then(function (response) {
 
-                //self.set('errorMessage', response.message);
                 if (response.success) {
                     self.get('currentUser').setProperties(response.user);
 
@@ -35,6 +34,8 @@ App.LoginController = Ember.Controller.extend({
                     } else {
                         self.transitionToRoute('home');
                     }
+                } else {
+                    self.set('errors',[response.error]);
                 }
             });
         },

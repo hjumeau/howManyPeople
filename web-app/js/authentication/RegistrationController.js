@@ -6,7 +6,8 @@ App.RegistrationController = Ember.Controller.extend({
         this.setProperties({
             username: "",
             password: "",
-            errorMessage: ""
+            email: "",
+            errors: null
         });
     },
 
@@ -16,11 +17,10 @@ App.RegistrationController = Ember.Controller.extend({
             var self = this;
             var data = this.getProperties('username', 'email', 'password');
             // Clear out any error messages.
-            // this.set('errorMessage', null);
+            this.set('errors', null);
 
             $.post('/HowManyPeople/user', data).then(function (response) {
 
-                // self.set('errorMessage', response.message);
                 if (response.success) {
                     self.get('currentUser').setProperties(response.user);
                     self.transitionToRoute('home');
