@@ -1,5 +1,5 @@
 <div>
-    <div class="errors">
+    <div class="alert alert-danger fade in">
         {{#each errors}}
             {{this}}
         {{/each}}
