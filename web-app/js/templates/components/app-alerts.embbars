@@ -1,0 +1,8 @@
+{{#if messages}}
+	<div {{bindAttr class=":alert :alert-block connotationStyle :fade :in"}}>
+		<button type="button" class="close" {{action clearMessages}}>×</button>
+		{{#each messages}}
+	       {{this}}
+       	{{/each}}
+	</div>
+{{/if}}

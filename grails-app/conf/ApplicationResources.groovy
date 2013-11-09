@@ -10,6 +10,7 @@ modules = {
 		defaultBundle 'app'
         resource url:'js/Application.js'
         resource url:'js/authentication/User.js'
+        resource url:'js/components/AppAlertsComponent.js'
         resource url:'js/authentication/AuthenticatedRoute.js'
 		resource url:'js/authentication/LoginController.js'
 		resource url:'js/authentication/LoginRoute.js'
@@ -21,6 +22,7 @@ modules = {
 		resource url:'js/Router.js'
 
 		resource url:'js/templates/application.embbars', attrs:[type:'js'], bundle:'app'
+		resource url:'js/templates/components/app-alerts.embbars', attrs:[type:'js'], bundle:'app'
 		resource url:'js/templates/home.embbars', attrs:[type:'js'], bundle:'app'
 		resource url:'js/templates/home-menu.embbars', attrs:[type:'js'], bundle:'app'
 		resource url:'js/templates/authentication/authentication-layout.embbars', attrs:[type:'js'], bundle:'app'
