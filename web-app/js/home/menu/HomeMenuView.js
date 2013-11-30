@@ -1,3 +1,3 @@
 App.HomeMenuView = Ember.View.extend({
-    templateName: 'home-menu'
+    templateName: 'home/home-menu'
 })

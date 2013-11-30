@@ -7,9 +7,9 @@ App.AuthenticatedRoute = Ember.Route.extend({
 	},
 
 	redirectToLogin : function(transition) {
-		var loginController = this.controllerFor('login');
+		var loginController = this.controllerFor('AuthenticationLogin');
 		loginController.set('attemptedTransition', transition);
-		this.transitionTo('login');
+		this.transitionTo('authentication.login');
 	},
 
 	actions : {
@@ -17,7 +17,7 @@ App.AuthenticatedRoute = Ember.Route.extend({
 			if (reason.status === 401) {
 				this.redirectToLogin(transition);
 			} else {
-				this.transitionTo('login', {
+				this.transitionTo('authentication.login', {
 					errorMessage : reason
 				});
 			}

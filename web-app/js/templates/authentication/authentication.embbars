@@ -1,6 +1,6 @@
 <div>
     {{app-alerts connotation=alert.connotation messages=alert.messages}}
     <div>
-    {{yield}}
+    {{outlet}}
     </div>
 </div>

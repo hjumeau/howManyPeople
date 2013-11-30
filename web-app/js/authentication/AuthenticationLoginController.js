@@ -1,4 +1,4 @@
-App.LoginController = Ember.Controller.extend({
+App.AuthenticationLoginController = Ember.Controller.extend({
 
     alert: null,
 
@@ -29,7 +29,7 @@ App.LoginController = Ember.Controller.extend({
                         self.set('attemptedTransition', null);
                         attemptedTransition.retry();
                     } else {
-                        self.transitionToRoute('home');
+                        self.transitionToRoute('home.search');
                     }
                 } else {
                     self.set('alert',{connotation:'error', messages :[response.error]});
@@ -37,7 +37,7 @@ App.LoginController = Ember.Controller.extend({
             });
         },
         redirectToRegistration:function (){
-            this.transitionToRoute('registration')
+            this.transitionToRoute('authentication.registration')
         }
     }
 });

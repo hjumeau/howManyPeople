@@ -4,7 +4,7 @@ App.HomeMenuController = Ember.ObjectController.extend({
 			var self = this;
 			$.get('/HowManyPeople/logout').done(function() {
 				self.get('currentUser').reset();
-				self.transitionToRoute('login');
+				self.transitionToRoute('authentication.login');
 			})
 		}
 	}

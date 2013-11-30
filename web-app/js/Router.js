@@ -1,11 +1,15 @@
 App.Router.map(function() {
-	this.route('home');
-	this.resource('login');
-	this.route('registration');
+	this.resource('home', function(){
+		this.route('search');
+	});
+	this.resource('authentication', function(){
+		this.route('login');
+		this.route('registration');
+	});
 });
 
 App.IndexRoute = Ember.Route.extend({
 	redirect : function() {
-		this.transitionTo('home')
+		this.transitionTo('home.search')
 	}
 });

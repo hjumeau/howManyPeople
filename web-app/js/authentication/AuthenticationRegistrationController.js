@@ -1,4 +1,4 @@
-App.RegistrationController = Ember.Controller.extend({
+App.AuthenticationRegistrationController = Ember.Controller.extend({
 
     alert: null,
 
@@ -21,14 +21,14 @@ App.RegistrationController = Ember.Controller.extend({
 
                 if (response.success) {
                     self.get('currentUser').setProperties(response.user);
-                    self.transitionToRoute('home');
+                    self.transitionToRoute('home.search');
                 } else {
                 	self.set('alert',{connotation:'error', messages : response.errors});
                 }
             });
         },
         goToLog: function () {
-            this.transitionToRoute('login')
+            this.transitionToRoute('authentication.login')
         }
     }
 });
