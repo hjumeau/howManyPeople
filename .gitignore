@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 *.h2.db
+=======
+.idea/
+>>>>>>> 19142f0dddc52998496e2de368b655ba53709bf4
 .settings/
 .project
 target/
